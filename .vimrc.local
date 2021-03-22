@@ -1,0 +1,13 @@
+color gruvbox
+" color nord
+" color one
+" set background=dark
+" set guifont=Menlo\ Bold\ 11
+
+set guifont=Input\ Mono\ Medium\ 11
+set foldmethod=indent
+set foldlevelstart=99
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType typescript setlocal ts=2 sts=2 sw=2
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:prettier#config#parser = 'babylon'

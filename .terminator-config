@@ -1,0 +1,85 @@
+[global_config]
+  title_transmit_bg_color = "#3465a4"
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+[keybindings]
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  next_tab = <Primary>k
+  prev_tab = <Primary>j
+  hide_window = <Primary>Escape
+  layout_launcher = None
+[profiles]
+  [[default]]
+    background_color = "#1e1e1e"
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#bbbbbb"
+    font = Input Mono Medium 11
+    foreground_color = "#e6d4a3"
+    palette = "#161819:#f73028:#aab01e:#f7b125:#719586:#c77089:#7db669:#faefbb:#7f7061:#be0f17:#868715:#cc881a:#377375:#a04b73:#578e57:#e6d4a3"
+    use_system_font = False
+  [[Aurora]]
+    background_color = "#0f1c21"
+    cursor_color = "#00485a"
+    font = Input Mono Medium 11
+    foreground_color = "#80b6ad"
+    palette = "#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad:#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad"
+    use_system_font = False
+  [[Desert]]
+    background_color = "#333333"
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#00ff00"
+    font = Input Mono Medium 11
+    foreground_color = "#ffffff"
+    palette = "#4d4d4d:#ff2b2b:#98fb98:#f0e68c:#cd853f:#ffdead:#ffa0a0:#f5deb3:#555555:#ff5555:#55ff55:#ffff55:#87ceff:#ff55ff:#ffd700:#ffffff"
+    use_system_font = False
+  [[Gruvbox Dark]]
+    background_color = "#1e1e1e"
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#bbbbbb"
+    font = Input Mono Medium 11
+    foreground_color = "#e6d4a3"
+    palette = "#161819:#f73028:#aab01e:#f7b125:#719586:#c77089:#7db669:#faefbb:#7f7061:#be0f17:#868715:#cc881a:#377375:#a04b73:#578e57:#e6d4a3"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1500:-3
+      maximised = True
+      fullscreen = False
+      size = 1920, 1053
+      title = jvitorsf@jvitorsf-notebook:~
+      last_active_term = fe2f4178-28aa-4d11-8060-5353b067ba4b
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = Gruvbox Dark
+      uuid = fe2f4178-28aa-4d11-8060-5353b067ba4b
+  [[Aurora]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1500:0
+      maximised = False
+      fullscreen = True
+      size = 1920, 1080
+      title = jvitorsf@jvitorsf-notebook:~
+      last_active_term = fe2f4178-28aa-4d11-8060-5353b067ba4b
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = Aurora
+      uuid = fe2f4178-28aa-4d11-8060-5353b067ba4b
+[plugins]
