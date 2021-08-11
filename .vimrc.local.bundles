@@ -1,12 +1,5 @@
 Plug 'morhetz/gruvbox'
-Plug 'PieterjanMontens/vim-pipenv'
-Plug 'plytophogy/vim-virtualenv'
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
-Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
-Plug 'jparise/vim-graphql'        " GraphQL syntax
-Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'nvie/vim-flake8'
-Plug 'arcticicestudio/nord-vim'
-Plug 'rakr/vim-one'
+Plug 'embark-theme/vim', { 'as': 'embark' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
