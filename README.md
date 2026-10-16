@@ -1,46 +1,46 @@
 # dotfiles
 
-Configurações pessoais de terminal, shell e editor. Os arquivos seguem o
-mesmo caminho que ocupam a partir da home (`~`): `.config/herdr/config.toml`
-aqui vai para `~/.config/herdr/config.toml`, e assim por diante.
+Personal terminal, shell and editor settings. Each file sits at the same path
+it has under your home directory (`~`): `.config/herdr/config.toml` here goes
+to `~/.config/herdr/config.toml`, and so on.
 
-Há dois conjuntos:
+There are two sets:
 
-- **Terminal no macOS** (atual): Ghostty, Herdr, iTerm2, Starship, lazygit e
-  delta, todos com o tema **Vesper**.
-- **Linux** (legado): zsh com Powerlevel10k, Terminator e Vim.
+- **macOS terminal** (current): Ghostty, Herdr, iTerm2, Starship, lazygit and
+  delta, all using the **Vesper** theme.
+- **Linux** (legacy): zsh with Powerlevel10k, Terminator and Vim.
 
-## Conteúdo
+## Contents
 
-| Arquivo | Destino | O que é |
+| File | Destination | What it is |
 |---|---|---|
-| `.config/ghostty/config` | `~/.config/ghostty/config` | Ghostty: tema, fonte, transparência e modo Guake |
-| `.config/ghostty/shaders/*.glsl` | `~/.config/ghostty/shaders/` | Efeito de monitor CRT (opcional) |
-| `.config/herdr/config.toml` | `~/.config/herdr/config.toml` | Herdr: atalhos estilo Vim e tema |
-| `Library/Application Support/iTerm2/DynamicProfiles/vesper.json` | mesmo caminho em `~` | Perfil "Guake (Vesper)" do iTerm2 |
-| `Library/Application Support/lazygit/config.yml` | mesmo caminho em `~` | lazygit: cores Vesper e diff com delta |
-| `.config/zsh/terminal-visual.zsh` | `~/.config/zsh/terminal-visual.zsh` | Starship, zoxide, `ls` com ícones e plugins do zsh |
-| `.gitconfig.delta` | `~/.gitconfig.delta` | delta como pager do git |
-| `.zshrc`, `.p10k.zsh`, `.bash_aliases` | `~/` | Shell (legado, Linux) |
-| `.vimrc`, `.vimrc.local`, `.vimrc.local.bundles` | `~/` | Vim (legado) |
-| `.config/terminator/config` | `~/.config/terminator/config` | Terminator (legado, Linux) |
+| `.config/ghostty/config` | `~/.config/ghostty/config` | Ghostty: theme, font, transparency and quick terminal |
+| `.config/ghostty/shaders/*.glsl` | `~/.config/ghostty/shaders/` | CRT monitor effect (optional) |
+| `.config/herdr/config.toml` | `~/.config/herdr/config.toml` | Herdr: Vim-style keybindings and theme |
+| `Library/Application Support/iTerm2/DynamicProfiles/vesper.json` | same path under `~` | iTerm2 "Guake (Vesper)" profile |
+| `Library/Application Support/lazygit/config.yml` | same path under `~` | lazygit: Vesper colors and delta diffs |
+| `.config/zsh/terminal-visual.zsh` | `~/.config/zsh/terminal-visual.zsh` | Starship, zoxide, `ls` with icons and zsh plugins |
+| `.gitconfig.delta` | `~/.gitconfig.delta` | delta as the git pager |
+| `.zshrc`, `.p10k.zsh`, `.bash_aliases` | `~/` | Shell (legacy, Linux) |
+| `.vimrc`, `.vimrc.local`, `.vimrc.local.bundles` | `~/` | Vim (legacy) |
+| `.config/terminator/config` | `~/.config/terminator/config` | Terminator (legacy, Linux) |
 
-## Terminal no macOS
+## macOS terminal
 
-### 1. Instalar
+### 1. Install
 
 ```bash
 brew install --cask ghostty font-jetbrains-mono-nerd-font
 brew install starship eza zoxide git-delta lazygit \
   zsh-autosuggestions zsh-syntax-highlighting
-# opcionais: fastfetch btop
+# optional: fastfetch btop
 ```
 
-O Herdr tem instalação própria: <https://herdr.dev>.
+Herdr has its own installer: <https://herdr.dev>.
 
-### 2. Copiar os arquivos
+### 2. Copy the files
 
-Na raiz deste repo:
+From the root of this repo:
 
 ```bash
 mkdir -p ~/.config/ghostty/shaders ~/.config/herdr ~/.config/zsh \
@@ -58,20 +58,20 @@ cp "Library/Application Support/lazygit/config.yml" \
   ~/Library/Application\ Support/lazygit/config.yml
 ```
 
-Faça backup antes se já tiver algum desses arquivos. Se preferir que as
-mudanças no repo valham na hora, troque `cp` por `ln -s "$PWD/<arquivo>" <destino>`.
+Back up any of these files you already have first. If you want changes in the
+repo to apply right away, use `ln -s "$PWD/<file>" <destination>` instead of `cp`.
 
-### 3. Ligar no shell e no git
+### 3. Hook up the shell and git
 
-No fim do `~/.zshrc`:
+At the end of `~/.zshrc`:
 
 ```zsh
 source ~/.config/zsh/terminal-visual.zsh
 ```
 
-Se usar Oh My Zsh, deixe `ZSH_THEME=""` para o Starship desenhar o prompt.
+If you use Oh My Zsh, set `ZSH_THEME=""` so Starship draws the prompt.
 
-No git:
+For git:
 
 ```bash
 git config --global include.path ~/.gitconfig.delta
@@ -79,92 +79,95 @@ git config --global include.path ~/.gitconfig.delta
 
 ### Ghostty
 
-- **Tema:** `Vesper`, que já vem com o Ghostty. Outros: `ghostty +list-themes`.
-- **Fonte:** JetBrains Mono Nerd Font, peso Medium, tamanho 14, com
+- **Theme:** `Vesper`, bundled with Ghostty. List others with
+  `ghostty +list-themes`.
+- **Font:** JetBrains Mono Nerd Font, Medium weight, size 14, with
   `font-thicken`.
-- **Modo Guake:** ``ctrl+` `` abre e esconde o terminal de qualquer app. Na
-  primeira vez, o macOS pede permissão de Acessibilidade para o Ghostty.
-  `quick-terminal-size = 100%` faz a janela ocupar a tela toda. Use isso em vez
-  de tela cheia, porque a tela cheia fica com o tamanho errado ao trocar de
-  monitor.
-  - O modo Guake não tem abas no macOS (limitação do Ghostty). Use as abas do
-    Herdr. Divisão de painéis funciona.
-- **Option como Alt:** só o Option esquerdo (`macos-option-as-alt = left`), para
-  os atalhos com `alt` do Herdr. O direito continua livre para caracteres
-  especiais.
-- **Pasta inicial:** descomente `working-directory` e ajuste o caminho.
-- **Efeito CRT:** descomente `custom-shader`. `crt-soft.glsl` é a versão suave;
-  `crt.glsl` é a original, forte e ilegível em monitor 1080p.
-- **Recarregar a config:** `cmd+shift+,` (vírgula). `cmd+shift+=` aumenta a
-  fonte; `cmd+0` volta ao tamanho original.
-- **Abrir ao ligar o Mac:** Ajustes do Sistema → Geral → Itens de Início.
+- **Quick terminal (Guake style):** ``ctrl+` `` shows and hides the terminal
+  from any app. The first time, macOS asks you to grant Ghostty Accessibility
+  permission. `quick-terminal-size = 100%` makes the window fill the screen.
+  Use this instead of fullscreen, because a fullscreen window keeps the wrong
+  size after you switch monitors.
+  - On macOS the quick terminal has no tabs (a Ghostty limitation). Use Herdr
+    tabs instead. Splits work.
+- **Option as Alt:** only the left Option key (`macos-option-as-alt = left`),
+  so Herdr's `alt` keybindings work. The right Option still types special
+  characters.
+- **Starting folder:** uncomment `working-directory` and set your path.
+- **CRT effect:** uncomment `custom-shader`. `crt-soft.glsl` is the subtle
+  version; `crt.glsl` is the original, which is strong and unreadable on a
+  1080p monitor.
+- **Reload the config:** `cmd+shift+,` (comma). `cmd+shift+=` makes the font
+  bigger; `cmd+0` resets it.
+- **Open at login:** System Settings → General → Login Items.
 
 ### Herdr
 
-O prefixo é `ctrl+space`. Desligue antes o atalho do macOS que usa
-`ctrl+space` (Ajustes → Teclado → Atalhos → Fontes de Entrada).
+The prefix is `ctrl+space`. First turn off the macOS shortcut that uses
+`ctrl+space` (System Settings → Keyboard → Keyboard Shortcuts → Input Sources).
 
-| Ação | Atalho |
+| Action | Keys |
 |---|---|
-| Configurações | `prefix` `,` |
-| Trocar de painel | `prefix` `h/j/k/l` ou `ctrl+alt+h/j/k/l` |
-| Dividir empilhado / lado a lado | `prefix` `s` (ou `-`) / `prefix` `v` |
-| Redimensionar painel | `prefix` `<` `>` `+` `_` |
-| Aba nova | `prefix` `c` |
-| Próxima / anterior aba | `prefix` `n` / `p`, ou `ctrl+alt+]` / `ctrl+alt+[` |
-| Último painel | `prefix` `;` |
-| Próximo / anterior agente | `ctrl+alt+n` / `ctrl+alt+p` |
-| Fechar workspace (a worktree fica no disco) | `prefix` `shift+d` |
-| Fechar workspace **e apagar a worktree** | `prefix` `alt+d` |
+| Settings | `prefix` `,` |
+| Move between panes | `prefix` `h/j/k/l` or `ctrl+alt+h/j/k/l` |
+| Split stacked / side by side | `prefix` `s` (or `-`) / `prefix` `v` |
+| Resize pane | `prefix` `<` `>` `+` `_` |
+| New tab | `prefix` `c` |
+| Next / previous tab | `prefix` `n` / `p`, or `ctrl+alt+]` / `ctrl+alt+[` |
+| Last pane | `prefix` `;` |
+| Next / previous agent | `ctrl+alt+n` / `ctrl+alt+p` |
+| Close workspace (worktree stays on disk) | `prefix` `shift+d` |
+| Close workspace **and delete the worktree** | `prefix` `alt+d` |
 
-- Recarregar a config sem derrubar nada: `herdr server reload-config`.
-- O `alt+d` só funciona em workspace de worktree, pede confirmação e nunca apaga
-  a branch.
-- Fechar o terminal não derruba o Herdr: rode `herdr` de novo e tudo volta.
+- Reload the config without stopping anything: `herdr server reload-config`.
+- `alt+d` only works in a worktree workspace, asks for confirmation and never
+  deletes the branch.
+- Closing the terminal doesn't stop Herdr: run `herdr` again and everything
+  comes back.
 
-### iTerm2 (alternativa ao Ghostty)
+### iTerm2 (alternative to Ghostty)
 
-O `vesper.json` cria o perfil dinâmico **Guake (Vesper)**, filho de um perfil
-chamado **Guake**, que precisa existir (crie em Settings → Profiles). Ele traz a
-paleta Vesper, a JetBrains Mono Nerd Font Medium 14, transparência com desfoque
-e o atalho ``ctrl+` ``.
+`vesper.json` creates the dynamic profile **Guake (Vesper)**, a child of a
+profile named **Guake** that must already exist (create it under Settings →
+Profiles). It has the Vesper palette, JetBrains Mono Nerd Font Medium 14,
+transparency with blur and the ``ctrl+` `` hotkey.
 
-Para ele ser o perfil usado:
+To make it the profile in use:
 
 1. Settings → Profiles → **Guake (Vesper)** → Other Actions → *Set as Default*.
-2. Desligue o atalho no perfil **Guake** original (Keys → Hotkey Window), para
-   não existirem dois perfis com ``ctrl+` ``.
+2. Turn off the hotkey on the original **Guake** profile (Keys → Hotkey
+   Window), so two profiles don't both use ``ctrl+` ``.
 
-O Ghostty usa o mesmo ``ctrl+` ``. Não deixe os dois abertos ao mesmo tempo.
+Ghostty uses the same ``ctrl+` ``. Don't run both apps at the same time.
 
 ### Shell
 
-- **Starship:** é um programa à parte, não é tema do Oh My Zsh. Para
-  personalizar o prompt, crie `~/.config/starship.toml`.
-- **zoxide:** `z <parte-do-nome>` pula para pastas já visitadas.
-- **zsh-autosuggestions:** sugestão em cinza enquanto você digita; `→` aceita.
-- **zsh-syntax-highlighting:** o comando fica verde quando existe e vermelho
-  quando não existe.
+- **Starship:** a standalone program, not an Oh My Zsh theme. To customize the
+  prompt, create `~/.config/starship.toml`.
+- **zoxide:** `z <part-of-name>` jumps to folders you've visited before.
+- **zsh-autosuggestions:** grey suggestions as you type; `→` accepts.
+- **zsh-syntax-highlighting:** a command turns green when it exists and red
+  when it doesn't.
 
-### delta e lazygit
+### delta and lazygit
 
-- **delta:** `git diff`, `git show` e `git log -p` passam a ter cores, números
-  de linha e diff lado a lado. `n` / `N` pulam de arquivo. Em painel estreito,
-  troque `side-by-side = true` por `false` no `~/.gitconfig.delta`.
-- **lazygit:** usa as cores do Vesper e o delta para mostrar diffs (`|` alterna
-  o modo de diff). A config fica em `~/Library/Application Support/lazygit/`.
+- **delta:** `git diff`, `git show` and `git log -p` get colors, line numbers
+  and side-by-side diffs. `n` / `N` jump between files. In a narrow pane, change
+  `side-by-side = true` to `false` in `~/.gitconfig.delta`.
+- **lazygit:** uses the Vesper colors and delta for diffs (`|` cycles the diff
+  view). The config lives in `~/Library/Application Support/lazygit/`.
 
-## Linux (legado)
+## Linux (legacy)
 
-### zsh e Powerlevel10k
+### zsh and Powerlevel10k
 
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 cp .zshrc .p10k.zsh .bash_aliases ~/
 ```
 
-Para refazer o visual do prompt: `p10k configure`. O `.zshrc` também configura
-nvm e caminhos de Android e Java; ajuste para a sua máquina.
+To redo the prompt look, run `p10k configure`. The `.zshrc` also sets up nvm
+and Android and Java paths; adjust them for your machine.
 
 ### Terminator
 
@@ -173,8 +176,8 @@ mkdir -p ~/.config/terminator
 cp .config/terminator/config ~/.config/terminator/config
 ```
 
-Atalhos principais: `alt+h/j/k/l` troca de painel, `ctrl+k` / `ctrl+j` troca de
-aba e `ctrl+esc` esconde a janela.
+Main shortcuts: `alt+h/j/k/l` moves between panes, `ctrl+k` / `ctrl+j`
+switches tabs and `ctrl+esc` hides the window.
 
 ### Vim
 
@@ -183,6 +186,6 @@ cp .vimrc .vimrc.local .vimrc.local.bundles ~/
 vim +PlugInstall +qall
 ```
 
-Baseado no vim-bootstrap. O vim-plug é baixado sozinho na primeira abertura
-(precisa de `curl`). Os plugins extras ficam em `.vimrc.local.bundles` (gruvbox,
-coc.nvim, markdown-preview), e as preferências pessoais em `.vimrc.local`.
+Based on vim-bootstrap. vim-plug downloads itself the first time you open Vim
+(requires `curl`). Extra plugins are in `.vimrc.local.bundles` (gruvbox,
+coc.nvim, markdown-preview), and personal preferences in `.vimrc.local`.
