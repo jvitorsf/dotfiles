@@ -1,0 +1,33 @@
+gui:
+  nerdFontsVersion: "3"
+  # paleta Vesper (mesmas cores do tema do Ghostty/Herdr)
+  theme:
+    activeBorderColor:
+      - "#FFC799"
+      - bold
+    inactiveBorderColor:
+      - "#505050"
+    searchingActiveBorderColor:
+      - "#99FFE4"
+      - bold
+    optionsTextColor:
+      - "#FFC799"
+    selectedLineBgColor:
+      - "#232323"
+    inactiveViewSelectedLineBgColor:
+      - "#1C1C1C"
+    cherryPickedCommitFgColor:
+      - "#FFC799"
+    cherryPickedCommitBgColor:
+      - "#343434"
+    markedBaseCommitFgColor:
+      - "#99FFE4"
+    markedBaseCommitBgColor:
+      - "#343434"
+    unstagedChangesColor:
+      - "#FF8080"
+    defaultFgColor:
+      - "#FFFFFF"
+git:
+  diffRenderers:
+    - command: delta --dark --paging=never
