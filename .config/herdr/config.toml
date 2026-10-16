@@ -1,0 +1,44 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+space"
+
+# configurações saem do s para liberar o split estilo Vim
+settings = "prefix+comma"
+
+# troca de pane sem prefix, no estilo ctrl+w hjkl do Vim
+focus_pane_left  = ["prefix+h", "ctrl+alt+h"]
+focus_pane_down  = ["prefix+j", "ctrl+alt+j"]
+focus_pane_up    = ["prefix+k", "ctrl+alt+k"]
+focus_pane_right = ["prefix+l", "ctrl+alt+l"]
+
+# splits como no Vim: ctrl+w s (empilhado) / ctrl+w v (lado a lado)
+split_horizontal = ["prefix+minus", "prefix+s"]
+split_vertical   = "prefix+v"
+
+# resize como ctrl+w < > + _
+resize_pane_left  = "prefix+shift+comma"
+resize_pane_right = "prefix+shift+period"
+resize_pane_up    = "prefix+plus"
+resize_pane_down  = "prefix+shift+minus"
+
+# workspaces com j/k no navigate mode
+navigate_workspace_down = "j"
+navigate_workspace_up   = "k"
+
+# abas como gt/gT
+next_tab     = ["prefix+n", "ctrl+alt+]"]
+previous_tab = ["prefix+p", "ctrl+alt+["]
+
+# ctrl+w p do Vim: volta para o último pane
+last_pane = "prefix+semicolon"
+
+# troca de agente pela lista de agents da lateral
+next_agent     = "ctrl+alt+n"
+previous_agent = "ctrl+alt+p"
+
+# fecha o workspace E apaga a worktree (git worktree remove; branch fica)
+remove_worktree = "prefix+alt+d"
+
+[theme]
+name = "vesper"

@@ -1,0 +1,19 @@
+theme = Vesper
+font-family = JetBrainsMono Nerd Font
+font-style = Medium
+font-thicken = true
+font-size = 14
+background-opacity = 0.92
+background-blur = 20
+cursor-style = block
+macos-option-as-alt = left
+# pasta inicial das janelas novas (ajuste para a sua)
+# working-directory = ~/projetos
+
+# modo Guake (mesmo atalho do iTerm: ctrl+`)
+keybind = global:ctrl+backquote=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-size = 100%
+
+# efeito monitor CRT (comente a linha para desligar)
+# custom-shader = shaders/crt-soft.glsl
